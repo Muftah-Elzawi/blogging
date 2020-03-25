@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
 
+//Route file
+const blogRoute = require('./routes/blog');
+
 //app
 const app = express();
 
@@ -19,10 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
-//routs
-app.get('/api', (req, res) => {
-    res.json({ 'thanks': 'thanks', time: Date().toString() })
-});
+//routes middlewares
+app.use('/api', blogRoute);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
