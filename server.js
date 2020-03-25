@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 
 //routes middlewares
 app.use('/api', blogRoute);
-app.use('api', authRoute);
+app.use('/api', authRoute);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
