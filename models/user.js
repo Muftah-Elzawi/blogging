@@ -70,6 +70,9 @@ userSchema.methods = {
         } catch (error) {
             return ''
         }
+    },
+    makeSalt: function () {
+        return Math.round(new Date().valueOf() * Math.random()) + '';
     }
 }
 
