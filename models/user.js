@@ -62,6 +62,9 @@ userSchema.virtual('password')
     })
 
 userSchema.methods = {
+    authenticate: function (pram) {
+        return this.encryptPassword(pram) === this.hashed_password
+    },
     encryptPassword: function (password) {
         if (!password) return '';
         try {
